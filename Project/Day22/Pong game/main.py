@@ -12,6 +12,7 @@ from paddle import Paddle
 from ball import Ball
 from time import sleep
 from scoreboard import ScoreBoard
+from court import Court
 
 screen = Screen()
 screen.setup(width=800, height=600)
@@ -20,11 +21,12 @@ screen.title("Pong Game")
 screen.tracer(0) # To turn off the animation
 
 r_paddle = Paddle((350, 0))
-l_paddle = Paddle((-350, 0))
+l_paddle = Paddle((-360, 0))
 
 ball = Ball()
 
 scoreboard = ScoreBoard()
+court = Court()
 
 screen.listen()
 # right paddle

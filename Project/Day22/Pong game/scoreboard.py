@@ -13,10 +13,10 @@ class ScoreBoard(Turtle):
         self.update_score()
     
     def write_score(self):
-        self.goto(-100, 260)
-        self.write(self.l_score, align="left", font=("Courier", 30, "bold"))
-        self.goto(100, 260)
-        self.write(self.r_score, align="right", font=("Courier", 30, "bold"))
+        self.goto(-100, 240)
+        self.write(self.l_score, align="left", font=("Courier", 40, "bold"))
+        self.goto(100, 240)
+        self.write(self.r_score, align="right", font=("Courier", 40, "bold"))
     
     def l_point(self):
         self.l_score += 1
