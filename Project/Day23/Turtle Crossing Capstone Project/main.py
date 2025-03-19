@@ -19,25 +19,28 @@ screen.listen()
 
 tut = Player()
 car_manager = CarManager()
+scoreboard = ScoreBoard()
 
 screen.onkey(tut.move_front, 'Up')
 screen.onkey(tut.move_back, 'Down')
 
-i = 1
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
-    
-    if i % 6 == 0:
-        car_manager.create_car()
-    
+    car_manager.create_car()
     car_manager.move_cars()
     
+    # Detect collision with car
     for car in car_manager.all_cars:
         if tut.distance(car) < 20:
             game_is_on = False
     
-    i += 1
-
+    # Detect when turtle reaches other side
+    if tut.is_at_finish_line():
+        tut.reset()
+        car_manager.increase_speed()
+        scoreboard.increase_level()
+        
+scoreboard.game_over()
 screen.exitonclick()

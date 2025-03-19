@@ -12,6 +12,8 @@ class CarManager:
         self.create_car()
     
     def create_car(self):
+        if random.randint(1, 6) != 1:
+            return
         car = Turtle()
         car.shape('square')
         car.shapesize(stretch_wid=1, stretch_len=2)
